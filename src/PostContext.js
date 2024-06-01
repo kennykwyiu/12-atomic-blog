@@ -11,7 +11,7 @@ function createRandomPost() {
   };
 }
 
-function PostProvider() {
+function PostProvider({ children }) {
   const [posts, setPosts] = useState(() =>
     Array.from({ length: 35 }, () => createRandomPost())
   );
@@ -45,7 +45,9 @@ function PostProvider() {
         searchQuery,
         setSearchQuery,
       }}
-    ></PostContext.Provider>
+    >
+      {children}
+    </PostContext.Provider>
   );
 }
 
